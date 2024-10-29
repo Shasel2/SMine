@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap" rel="stylesheet"> <!-- Подключение шрифта Kanit -->
+    <style>
+        body {
+            font-family: 'Kanit', sans-serif; /* Используем Kanit */
+            background-image: url('https://sotni.ru/wp-content/uploads/2023/08/mainkraft-noch-s-sheiderami-12.webp');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+        .button {
+            background-color: #3903ff; /* Цвет кнопок */
+            border: none;
+            color: white;
+            padding: 15px 30px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: #2902a3; /* Цвет кнопки при наведении */
+        }
+        .privileges {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный фон для раздела привилегий */
+            border-radius: 10px;
+            opacity: 0; /* Скрываем изначально */
+            transform: translateY(20px); /* Сдвигаем вниз */
+            transition: opacity 0.5s ease, transform 0.5s ease; /* Параметры анимации */
+        }
+        .privileges.visible {
+            opacity: 1; /* Делаем видимым */
+            transform: translateY(0); /* Возвращаем на место */
+        }
+        .privileges h2 {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Добро пожаловать на наш сайт!</h1>
+    <p>Пролистайте ниже. Это еще не всё.</p>
+    <a href="https://t.me/smine_info" class="button" target="_blank">Наш Telegram</a>
+    <a href="https://discord.gg/244nKXdAUd" class="button" target="_blank">Наш Discord</a>
+
+    <div class="privileges" id="privileges">
+        <h2>Привилегии</h2>
+        <ul>
+            <li>Сильвер - 15Р</li>
+            <li>Супрем - 30Р</li>
+            <li>Визер - 59Р</li>
+            <li>Дарк - 99Р</li>
+            <li>Авенжер - 239Р</li>
+            <li>Легенда - 449Р</li>
+            <li>Фантом - 639Р</li>
+            <li>Эндер - 949Р</li>
+            <li>Миднайт - 1739Р</li>
+        </ul>
+        <h1>✅ ВСЕ Донаты остаются после вайпа НАВСЕГДА! ✅</h1>
+        <h1>✅ За покупкой обратитесь в Telegram, на @smine_sell_bot.</h1>
+    </div>
+
+    <!-- Перемещенная кнопка "Правила сервера" -->
+    <a href="https://t.me/smine_info/12" class="button" target="_blank">Правила сервера</a>
+
+    <script>
+        // Функция для проверки видимости элемента
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        // Функция для добавления класса видимости
+        function handleScroll() {
+            const privileges = document.getElementById('privileges');
+            if (isElementInViewport(privileges)) {
+                privileges.classList.add('visible');
+                window.removeEventListener('scroll', handleScroll); // Убираем обработчик после срабатывания
+            }
+        }
+
+        // Добавляем обработчик события прокрутки
+        window.addEventListener('scroll', handleScroll);
+    </script>
+</body>
+</html>
